@@ -1,23 +1,98 @@
 from db.run_sql import run_sql
 
 from models.country import Country
-
-#create
-def save(country_to_save):
-    sql = "INSERT INTO countries(self, name, population, language_spoken, currency_used, average_temp) VALUES(%s, %s, %s, %s, %s, %s) RETURNING id"
-    values = [country_to_save.name, country_to_save.population, country_to_save.language_spoken, country_to_save.currency_used, country_to_save.average_temp]
-    sql_results = run_sql(sql, values)
-    country_to_save.id = sql_results[0]['id']
-    return country_to_save
+from models.city import City
 
 
-#read - select all
+# create
+def save(country):
+    sql = "INSERT INTO countries (name, population, language_spoken, currency_used, average_temp) VALUES (%s, %s, %s, %s, %s) RETURNING *"
+    values = [
+        country.name,
+        country.population,
+        country.language_spoken,
+        country.currency_used,
+        country.average_temp,
+        country.id,
+    ]
+    results = run_sql(sql, values)
+    id = results[0]["id"]
+    country.id = id
+    return country
 
-#read - select one
 
-#delete - delete one
+# read - select all
+def select_all():
+    countries = []
+    sql = "SELECT * FROM countries"
+    results = run_sql(sql)
 
-#delete - delete all
+    for row in results:
+        country = Country(
+            row["name"],
+            row["population"],
+            row["language_spoken"],
+            row["currency_used"],
+            row["average_temp"],
+        )
+        countries.append(country)
+    return country
 
-#update one
 
+# read - select one
+def select(id):
+    country = None
+    sql = "SELECT * FROM country WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        country = Country(
+            result["name"],
+            result["population"],
+            result["language_spoken"],
+            result["currency_used"],
+            result["average_temp"],
+            result["id"],
+        )
+    return country
+
+
+# delete - delete one
+def delete(id):
+    sql = "DELETE FROM countries WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+
+# delete - delete all
+def delete_all():
+    sql = "DELETE FROM countries"
+    run_sql(sql)
+
+
+# update country
+def update(country):
+    sql = "UPDATE country SET (name, population, language_spoken, currency_used, average_temp) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = values = [
+        country.name,
+        country.population,
+        country.language_spoken,
+        country.currency_used,
+        country.average_temp,
+        country.id,
+    ]
+    run_sql(sql, values)
+
+
+def cities(country):
+    cities = []
+
+    sql = "SELECT * FROM cities WHERE country_id = %s"
+    values = [country.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        city = City(row['title'], row['city_type'],row['country_id'],row['id'])
+        cities.append(city)
+    return cities
