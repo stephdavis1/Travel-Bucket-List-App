@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/countries" method="post">
+
+  <div>
+    <label for="name">Country Name:</label>
+    <input type="text" id="name" name="name" placeholder="Country Name" required autofocus>
+  </div>
+
+  <div>
+    <label for="city">Cities:</label>
+    <select id="city" name="city_id">
+      {% for cities in all_cities %}
+        <option value="{{ city.id }}">{{ city.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button type="submit">Add Country</button>
+
+</form>
+
+{% endblock %}

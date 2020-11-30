@@ -5,7 +5,7 @@
 
   <div>
     <label for="name">City Name:</label>
-    <input type="text" id="name" name="name" placeholder="Name" required autofocus>
+    <input type="text" id="name" name="name" placeholder="City Name" required autofocus>
   </div>
 
   <label for="city_type">City Type:</label>
@@ -16,40 +16,11 @@
     <option value="romantic">Romantic Holiday</option>
   </select>
 
-  <div>
-    <label for="country">Country:</label>
-    <select id="country" name="country_id">
-      {% for country in all_countries %}
-        <option value="{{ country.id }}">{{ country.name }}</option>
-      {% endfor %}
-    </select>
-  </div>
+
+
 
   <button type="submit">Add City</button>
 
 </form>
-
-<!-- ________________________________________________ -->
-
-
-<!-- <form action="/cities" method="post">
-
-  <div>
-    <label for="name">Country Name:</label>
-    <input type="text" id="name" name="name" placeholder="Name" required autofocus>
-  </div>
-
-  <div>
-    <label for="city">Cities:</label>
-    <select id="city" name="city_id">
-      {% for cities in all_cities %}
-        <option value="{{ city.id }}">{{ city.name }}</option>
-      {% endfor %}
-    </select>
-  </div>
-
-  <button type="submit">Add Country</button>
-
-</form> -->
 
 {% endblock %}

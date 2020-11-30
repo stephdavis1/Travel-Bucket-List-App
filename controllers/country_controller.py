@@ -22,7 +22,6 @@ def new_country():
     return render_template("countries/new.html", all_cities=cities)
 
 
-# name, population, language_spoken, currency_used, average_temperature, id=None
 
 # CREATE
 # POST '/countries'
