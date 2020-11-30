@@ -7,7 +7,7 @@
 <!-- ___________CITIES LIST______________ -->
 
 {% for city in all_cities %}
-<div class="city">
+<div class="container">
     <a href="/cities/{{city.id}}">{{city.name}}</a>
 {{city.city_type}}
     </div>
@@ -18,7 +18,7 @@
 <!-- ___________COUNTRIES LIST______________ -->
 
 {% for country in all_countries %}
-<div class="country">
+<div class="container">
     <a href="/countries/{{country.id}}">{{country.name}}</a>
     <p><b>Population:</b> {{country.population}}</p>
     <p><b>Language:</b> {{country.language_spoken}}</p>

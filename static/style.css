@@ -14,7 +14,7 @@ body{
     color: rgb(42, 42, 42);
   }
 
-  .book {
+  .city {
     border: 1px solid #ccc;
     width: 300px;
     min-height: 68px;
@@ -68,8 +68,8 @@ body{
   .menu{
     display: flex;
     padding: 10px;
-    background-color: rgb(65, 124, 131);
-    color: white;
+    background-color:#EFEFEF;
+    color:#0094e4;
   }
   
   .menu li a{
@@ -77,7 +77,7 @@ body{
   }
   
   .menu li a:visited{
-    color: white;
+    color:#0094e4;
   }
   
   .menu li{
