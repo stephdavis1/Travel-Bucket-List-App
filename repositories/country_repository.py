@@ -6,14 +6,13 @@ from models.city import City
 
 # create
 def save(country):
-    sql = "INSERT INTO countries (name, population, language_spoken, currency_used, average_temp) VALUES (%s, %s, %s, %s, %s) RETURNING *"
+    sql = "INSERT INTO countries (name, population, language_spoken, currency_used, average_temperature) VALUES (%s, %s, %s, %s, %s) RETURNING *"
     values = [
         country.name,
         country.population,
         country.language_spoken,
         country.currency_used,
-        country.average_temp,
-        country.id,
+        country.average_temperature
     ]
     results = run_sql(sql, values)
     id = results[0]['id']

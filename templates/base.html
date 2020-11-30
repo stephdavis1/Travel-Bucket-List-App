@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <title>Travel Bucket List</title>
 </head>
@@ -12,9 +11,9 @@
   <header>
     <nav>
       <ul class="menu">
-        <li><a href="{{ url_for('home') }}">Home</a></li>
-        <li><a href="{{ url_for('cities.cities') }}">Cities</a></li>
-        <li><a href="{{ url_for('cities.new_city') }}">Add City</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/cities/show">Cities</a></li>
+        <li><a href="/citites/add">Add City</a></li>
       </ul>
     </nav>
   </header>

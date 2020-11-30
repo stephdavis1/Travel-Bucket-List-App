@@ -15,5 +15,5 @@ CREATE TABLE cities (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     city_type VARCHAR(255),
-    countries_id INT REFERENCES countries(id)
+    country_id INT REFERENCES countries(id)
 );
