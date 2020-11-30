@@ -32,10 +32,11 @@ def select_all():
             row["population"],
             row["language_spoken"],
             row["currency_used"],
-            row["average_temp"],
+            row["average_temperature"],
+            row['id']
         )
         countries.append(country)
-    return country
+    return countries
 
 
 # read - select one
@@ -51,7 +52,7 @@ def select(id):
             result["population"],
             result["language_spoken"],
             result["currency_used"],
-            result["average_temp"],
+            result["average_temperature"],
             result["id"],
         )
     return country
@@ -72,13 +73,13 @@ def delete_all():
 
 # update country
 def update(country):
-    sql = "UPDATE country SET (name, population, language_spoken, currency_used, average_temp) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    sql = "UPDATE country SET (name, population, language_spoken, currency_used, average_temperature) = (%s, %s, %s, %s, %s) WHERE id = %s"
     values = values = [
         country.name,
         country.population,
         country.language_spoken,
         country.currency_used,
-        country.average_temp,
+        country.average_temperature,
         country.id,
     ]
     run_sql(sql, values)
