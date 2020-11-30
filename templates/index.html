@@ -7,10 +7,9 @@
 <!-- ___________CITIES LIST______________ -->
 
 {% for city in all_cities %}
-<div class="container">
+<div class="cities">
     <a href="/cities/{{city.id}}">{{city.name}}</a>
-{{city.city_type}}
-    </div>
+    <br><b>City Type:</b> {{city.city_type}}
 </div>
 {% endfor %}
 
@@ -18,15 +17,16 @@
 <!-- ___________COUNTRIES LIST______________ -->
 
 {% for country in all_countries %}
-<div class="container">
-    <a href="/countries/{{country.id}}">{{country.name}}</a>
-    <p><b>Population:</b> {{country.population}}</p>
-    <p><b>Language:</b> {{country.language_spoken}}</p>
-    <p><b>Currency:</b> {{country.currency_used}}</p>
-    <p><b>Average Temperature:</b> {{country.average_temperature}}</p>
+<div class="countries">
+    <br><a href="/countries/{{country.id}}">{{country.name}}</a>
+    <br><b>Population:</b> {{country.population}}
+    <br><b>Language:</b> {{country.language_spoken}}
+    <br><b>Currency:</b> {{country.currency_used}}
+    <br><b>Average Temperature:</b> {{country.average_temperature}}
 </div>
 
-<hr>
+
 
 {% endfor %}
 {% endblock %}
+

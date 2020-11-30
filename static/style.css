@@ -7,11 +7,11 @@ body{
   }
   
   h1 {
-    color: rgb(42, 42, 42);
+    color:#1a567b;
   }
 
   p {
-    color: rgb(42, 42, 42);
+    color:#1a567b;
   }
 
   .city {
@@ -94,3 +94,22 @@ body{
     margin: 0 auto;
   }
   
+  .cities {
+    background-color: #0094e4;
+    color: white;
+    border-radius: 12px;
+    border: 2px solid #EFEFEF;
+    margin: 20px;
+    padding: 20px;
+  }
+
+  
+
+  .countries {
+    background-color: #0094e4;
+    color: white;
+    border-radius: 12px;
+    border: 2px solid #EFEFEF;
+    margin: 20px;
+    padding: 20px;  
+  }

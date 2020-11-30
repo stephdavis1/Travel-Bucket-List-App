@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% for country in all_countries %}
+<div class="countries">
+    <br><a href="/countries/{{country.id}}">{{country.name}}</a>
+    <br><b>Population:</b> {{country.population}}
+    <br><b>Language:</b> {{country.language_spoken}}
+    <br><b>Currency:</b> {{country.currency_used}}
+    <br><b>Average Temperature:</b> {{country.average_temperature}}
+</div>
+
+{% endfor %}
+
+{% endblock %}

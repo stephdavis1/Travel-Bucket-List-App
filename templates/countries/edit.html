@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/countries/{{country.id}}" method="post">
+  <div>
+    <label for="name">Country Name:</label>
+    <input type="text" id="name" name="name" placeholder="Country Name" required autofocus>
+  </div>
+
+  <div>
+    <label for="city">City:</label>
+    <select id="city" name="city_id">
+      {% for city in all_cities %}
+        <option value="{{ city.id }}"
+          {% if book.country.id = city.id %} selected="selected"{% endif %}>
+          {{ city.name }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button type="submit">Update Country</button>
+
+</form>
+
+{% endblock %}
