@@ -2,7 +2,7 @@ import unittest
 
 from models.country import *
 
-# from models.city import *
+from models.city import *
 
 
 class CountryTest(unittest.TestCase):

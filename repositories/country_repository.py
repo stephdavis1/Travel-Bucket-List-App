@@ -16,7 +16,7 @@ def save(country):
         country.id,
     ]
     results = run_sql(sql, values)
-    id = results[0]["id"]
+    id = results[0]['id']
     country.id = id
     return country
 

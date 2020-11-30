@@ -9,6 +9,8 @@ import repositories.city_repository as city_repository
 city_repository.delete_all()
 country_repository.delete_all()
 
+# _________________________________________________________
+
 country1 = Country("Italy", "60,461,826", "Italian", "Euro", "26°C")
 country_repository.save(country1)
 
