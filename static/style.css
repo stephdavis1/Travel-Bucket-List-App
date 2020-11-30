@@ -1,7 +1,19 @@
 body{
     font-family: "Helvetica", arial, sans-serif; font-size: 16px;
+    /* background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background-attachment:fixed;
+    height:100%; */
   }
   
+  h1 {
+    color: rgb(42, 42, 42);
+  }
+
+  p {
+    color: rgb(42, 42, 42);
+  }
+
   .book {
     border: 1px solid #ccc;
     width: 300px;
@@ -80,13 +92,5 @@ body{
     flex-wrap: wrap;
     width: 300px;
     margin: 0 auto;
-  }
-  
-  #home-image {
-    width:100vw;
-    height:100vh;
-    background-image: url('images/library.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
   }
   

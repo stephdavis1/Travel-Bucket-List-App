@@ -8,10 +8,13 @@
     <input type="text" id="name" name="name" placeholder="Name" required autofocus>
   </div>
 
-  <div>
-    <label for="city_type">City Type:</label>
-    <input type="text" id="city_type" name="city_type" placeholder="City Break" required autofocus>
-  </div>
+  <label for="city_type">City Type:</label>
+  <select id="city_type" name="city_type">
+    <option value="city_break">City Break</option>
+    <option value="beach">Beach Holiday</option>
+    <option value="family">Family Holiday</option>
+    <option value="romantic">Romantic Holiday</option>
+  </select>
 
   <div>
     <label for="country">Country:</label>
@@ -25,5 +28,28 @@
   <button type="submit">Add City</button>
 
 </form>
+
+<!-- ________________________________________________ -->
+
+
+<!-- <form action="/cities" method="post">
+
+  <div>
+    <label for="name">Country Name:</label>
+    <input type="text" id="name" name="name" placeholder="Name" required autofocus>
+  </div>
+
+  <div>
+    <label for="city">Cities:</label>
+    <select id="city" name="city_id">
+      {% for cities in all_cities %}
+        <option value="{{ city.id }}">{{ city.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button type="submit">Add Country</button>
+
+</form> -->
 
 {% endblock %}
