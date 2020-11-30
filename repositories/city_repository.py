@@ -13,7 +13,6 @@ def save(city):
     results = run_sql(sql, values)
     id = results[0]['id']
     city.id = id
-    return city
 
 
 
@@ -21,12 +20,12 @@ def save(city):
 def select_all():
     cities = []
 
-    sql = "SELECT * FROM books"
+    sql = "SELECT * FROM cities"
     results = run_sql(sql)
 
     for row in results:
         country = country_repository.select(row["country_id"])
-        city = City(row['title'], row['city_type'], country, row['id'])
+        city = City(row['name'], row['city_type'], country, row['id'])
         cities.append(city)
     return cities
 

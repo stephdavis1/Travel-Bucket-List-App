@@ -7,7 +7,7 @@ import repositories.country_repository as country_repository
 cities_blueprint = Blueprint("cities", __name__)
 
 
-@cities_blueprint.route("/cities/show")
+@cities_blueprint.route("/cities")
 def cities():
     cities = city_repository.select_all()
     return render_template("cities/index.html", all_cities=cities)
@@ -25,6 +25,7 @@ def new_city():
 # POST '/cities'
 @cities_blueprint.route("/cities", methods=['POST'])
 def create_city():
+    print(request.form)
     name = request.form["name"]
     city_type = request.form["city_type"]
     country = country_repository.select(request.form["country_id"])

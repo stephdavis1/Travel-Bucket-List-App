@@ -42,7 +42,7 @@ def select_all():
 # read - select one
 def select(id):
     country = None
-    sql = "SELECT * FROM country WHERE id = %s"
+    sql = "SELECT * FROM countries WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
 
@@ -73,7 +73,7 @@ def delete_all():
 
 # update country
 def update(country):
-    sql = "UPDATE country SET (name, population, language_spoken, currency_used, average_temperature) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    sql = "UPDATE countries SET (name, population, language_spoken, currency_used, average_temperature) = (%s, %s, %s, %s, %s) WHERE id = %s"
     values = values = [
         country.name,
         country.population,

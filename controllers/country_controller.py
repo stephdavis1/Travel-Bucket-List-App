@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.country import Country
+from models.city import City
 import repositories.city_repository as city_repository
 import repositories.country_repository as country_repository
 
@@ -32,8 +33,7 @@ def create_country():
     language_spoken = request.form["language_spoken"]
     currency_used = request.form["currency_used"]
     average_temperature = request.form["average_temperature"]
-    city = city_repository.select(request.form["city_id"])
-    city = City(name, city_type, country)
+    country = Country(name, population, language_spoken, currency_used, average_temperature)
     country_repository.save(country)
     return redirect("/countries")
 
@@ -64,9 +64,8 @@ def update_country(id):
     language_spoken = request.form["language_spoken"]
     currency_used = request.form["currency_used"]
     average_temperature = request.form["average_temperature"]
-    city = city_repository.select(request.form["city_id"])
-    country = Country(name, population, language_spoken,currency_used, average_temperature, city, id)
-    print(country.city.name())
+    country = Country(name, population, language_spoken,currency_used, average_temperature, id)
+    print(country.name())
     country_repository.update(country)
     return redirect("/countries")
 
