@@ -6,13 +6,14 @@ from models.city import City
 
 # create
 def save(country):
-    sql = "INSERT INTO countries (name, population, language_spoken, currency_used, average_temperature) VALUES (%s, %s, %s, %s, %s) RETURNING *"
+    sql = "INSERT INTO countries (name, population, language_spoken, currency_used, average_temperature, visited) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
     values = [
         country.name,
         country.population,
         country.language_spoken,
         country.currency_used,
-        country.average_temperature
+        country.average_temperature,
+        country.visited
     ]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -33,7 +34,8 @@ def select_all():
             row["language_spoken"],
             row["currency_used"],
             row["average_temperature"],
-            row['id']
+            row['id'],
+            row["visited"]
         )
         countries.append(country)
     return countries
@@ -53,7 +55,8 @@ def select(id):
             result["language_spoken"],
             result["currency_used"],
             result["average_temperature"],
-            result["id"],
+            result["visited"],
+            result["id"]
         )
     return country
 
@@ -73,14 +76,16 @@ def delete_all():
 
 # update country
 def update(country):
-    sql = "UPDATE countries SET (name, population, language_spoken, currency_used, average_temperature) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    sql = "UPDATE countries SET (name, population, language_spoken, currency_used, average_temperature, visited) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
     values = values = [
         country.name,
         country.population,
         country.language_spoken,
         country.currency_used,
         country.average_temperature,
-        country.id,
+        country.visited,
+        country.id
+
     ]
     run_sql(sql, values)
 

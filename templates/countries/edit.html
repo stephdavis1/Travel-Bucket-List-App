@@ -26,8 +26,15 @@
 
   <div>
     <label for="temperature">Temperature:</label>
-    <input type="text" id="temperature" name="temperature" value="{{country.average_temperature}}" required
-      autofocus>
+    <input type="text" id="temperature" name="temperature" value="{{country.average_temperature}}" required autofocus>
+  </div>
+
+  <div>
+    <label for="visited">Visited:</label>
+    <select id="visited" name="visited">
+      <option value="True">Visited</option>
+      <option value="False">Not Visited</option>
+    </select>
   </div>
 
 

@@ -8,7 +8,15 @@ bucketlist_blueprint = Blueprint("bucketlist", __name__)
 
 @bucketlist_blueprint.route("/bucketlist")
 def bucketlist():
-    cities = city_repository.select_all()
+
+    bucketlist_cities = [city for city in city_repository.select_all() if city.visited is False]
+
     countries = country_repository.select_all()
-    return render_template("/bucketlist.html", all_cities=cities, all_countries = countries)
+    bucketlist_countries = []
+    for country in countries:
+        if country.visited is False:
+            bucketlist_countries.append(country)
+
+    # import pdb; pdb.set_trace()
+    return render_template("/bucketlist.html", all_cities=bucketlist_cities, all_countries = bucketlist_countries)
 

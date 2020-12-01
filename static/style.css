@@ -55,9 +55,9 @@ body{
     box-sizing: border-box;
   }
   
-  .trash-button{
+  .delete-button{
     display: contents;
-    font-size: 65%;
+    background-color:#0094e4;
   }
   
   
