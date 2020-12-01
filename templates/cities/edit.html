@@ -4,12 +4,12 @@
 <form action="/cities/{{city.id}}" method="post">
   <div>
     <label for="name">City Name:</label>
-    <input type="text" id="name" name="name" placeholder="Name" required autofocus>
+    <input type="text" id="name" name="name" value="{{city.name}}" required autofocus>
   </div>
 
   <label for="city_type">City Type:</label>
   <select id="city_type" name="city_type">
-    <option value="city break">City Break</option>
+    <option value="city_break">City Break</option>
     <option value="beach">Beach Holiday</option>
     <option value="family">Family Holiday</option>
     <option value="romantic">Romantic Holiday</option>
@@ -25,20 +25,12 @@
   </div>
 
 
-  <div>
-    <label for="country">country:</label>
-    <select id="country" name="country_id">
-      {% for country in all_countries %}
-        <option value="{{ country.id }}"
-          {% if book.country.id = country.id %} selected="selected"{% endif %}>
-          {{ country.name }}
-        </option>
-      {% endfor %}
-    </select>
-  </div>
-
   <button type="submit">Update City</button>
 
 </form>
 
 {% endblock %}
+
+
+
+

@@ -58,7 +58,6 @@ def update_city(id):
     city_type = request.form["city_type"]
     country = country_repository.select(request.form["country_id"])
     city = City (name, city_type, country, id)
-    print(city.country.name())
     city_repository.update(city)
     return redirect('/cities')
 

@@ -18,8 +18,8 @@ def countries():
 # GET '/countries/new'
 @countries_blueprint.route("/countries/new", methods=["GET"])
 def new_country():
-    cities = city_repository.select_all()
-    return render_template("countries/new.html", all_cities=cities)
+    countries = country_repository.select_all()
+    return render_template("countries/new.html", all_countries=countries)
 
 
 
@@ -33,8 +33,9 @@ def create_country():
     language_spoken = request.form["language_spoken"]
     currency_used = request.form["currency_used"]
     average_temperature = request.form["average_temperature"]
-    country = Country(name, population, language_spoken, currency_used, average_temperature)
-    country_repository.save(country)
+    visited = request.form["visited"]
+    country = Country(name, population, language_spoken,currency_used, average_temperature, id, visited)
+    country_repository.update(country)
     return redirect("/countries")
 
 
@@ -51,7 +52,8 @@ def show_country(id):
 @countries_blueprint.route("/countries/<id>/edit", methods=["GET"])
 def edit_country(id):
     country = country_repository.select(id)
-    return render_template("countries/edit.html", country=country)
+    cities = city_repository.select_all()
+    return render_template("countries/edit.html", country=country, all_cities = cities)
 
 
 # UPDATE

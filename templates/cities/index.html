@@ -17,6 +17,13 @@
       <button type="delete">Delete</button>
     </form>
 
+    <div>
+      <form action="/cities/{{city.id}}/edit" method="GET">
+        <button type="edit">Edit</button>
+      </form>
+
+    </div>
+
   </div>
 </div>
 {% endfor %}

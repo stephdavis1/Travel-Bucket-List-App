@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<h1> Add a city</h1>
-<p> Fill out the form below to add a city to your bucketlist</p>
+<h1> Add a City</h1>
+<p> Fill out the form below to add a City to your bucket list.</p>
 
 <form action="/cities" method="post">
 
@@ -27,6 +27,13 @@
     </select>
   </div>
 
+  <div>
+    <label for="visited">Visited:</label>
+    <select id="visited" name="visited">
+      <option value="True">Visited</option>
+      <option value="False">Not Visited</option>
+    </select>
+  </div>
 
 
   <button type="submit">Add City</button>
