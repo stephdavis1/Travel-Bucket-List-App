@@ -9,12 +9,24 @@
 <!-- ___________ALL CITIES LIST______________ -->
 <h2>Cities</h2>
 {% for city in all_cities %}
-<div class="cities">
-    <br><a href="/cities/{{city.id}}">
-        <br>{{city.name}}</a>
-        <br><b>City Type:</b> {{city.city_type}}
-        <br><b>Visited:</b> {{city.visited}}
+<div class="countries">
+    <!-- <br><a href="/cities/{{city.id}}"> -->
+
+    <br><b>{{city.name}}</a></b>
+    <br><b>City Type:</b> {{city.city_type}}
+    <br><b>Visited:</b> {{city.visited}}
+
+    <form action="/cities/{{city.id}}/delete" method="POST">
+        <button type="delete">Delete</button>
+    </form>
+    <form action="/cities/{{city.id}}/edit" method="GET">
+        <button type="edit">Edit</button>
+    </form>
+
 </div>
+
+
+
 {% endfor %}
 
 
@@ -23,13 +35,22 @@
 <h2>Countries</h2>
 {% for country in all_countries %}
 <div class="countries">
-    <br><a href="/countries/{{country.id}}">{{country.name}}</a>
+    <!-- <br><a href="/countries/{{country.id}}">{{country.name}}</a> -->
+    <br><b>{{country.name}}
     <br><b>Population:</b> {{country.population}}
     <br><b>Language:</b> {{country.language_spoken}}
     <br><b>Currency:</b> {{country.currency_used}}
     <br><b>Average Temperature:</b> {{country.average_temperature}}
     <br><b>Visited:</b> {{country.visited}}
-</div>
-{% endfor %}
 
+    <form action="/countries/{{country.id}}/delete" method="POST">
+        <button type="delete">Delete</button>
+    </form>
+    <form action="/countries/{{country.id}}/edit" method="GET">
+        <button type="edit">Edit</button>
+    </form>
+
+</div>
+
+{% endfor %}
 {% endblock %}
