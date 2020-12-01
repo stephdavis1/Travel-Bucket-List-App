@@ -1,23 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form action="/countries/{{country.id}}" method="post">
+
+<form action="/countries/{{ country.id }}" method="post">
+
   <div>
     <label for="name">Country Name:</label>
-    <input type="text" id="name" name="name" placeholder="Country Name" required autofocus>
+    <input type="text" id="name" name="name" value="{{country.name}}" required autofocus>
   </div>
 
   <div>
-    <label for="city">City:</label>
-    <select id="city" name="city_id">
-      {% for city in all_cities %}
-        <option value="{{ city.id }}"
-          {% if book.country.id = city.id %} selected="selected"{% endif %}>
-          {{ city.name }}
-        </option>
-      {% endfor %}
-    </select>
+    <label for="population">Population:</label>
+    <input type="text" id="population" name="population" value="{{country.population}}" required autofocus>
   </div>
+
+  <div>
+    <label for="language_spoken">Language:</label>
+    <input type="text" id="language" name="language_spoken" value="{{country.language_spoken}}" required autofocus>
+  </div>
+
+  <div>
+    <label for="currency">Currency:</label>
+    <input type="text" id="currency" name="currency" value="{{country.currency_used}}" required autofocus>
+  </div>
+
+  <div>
+    <label for="temperature">Temperature:</label>
+    <input type="text" id="temperature" name="temperature" value="{{country.average_temperature}}" required
+      autofocus>
+  </div>
+
 
   <button type="submit">Update Country</button>
 

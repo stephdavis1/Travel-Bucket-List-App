@@ -1,32 +1,9 @@
 {% extends "base.html" %}
-{% block home %}
+{% block content %}
 <h1> Welcome to your travel bucket list</h1>
 <p> A place for you to add, remove, edit and check the places you've visited.</p>
 
 
-<!-- ___________CITIES LIST______________ -->
-
-{% for city in all_cities %}
-<div class="cities">
-    <a href="/cities/{{city.id}}">{{city.name}}</a>
-    <br><b>City Type:</b> {{city.city_type}}
-</div>
-{% endfor %}
 
 
-<!-- ___________COUNTRIES LIST______________ -->
-
-{% for country in all_countries %}
-<div class="countries">
-    <br><a href="/countries/{{country.id}}">{{country.name}}</a>
-    <br><b>Population:</b> {{country.population}}
-    <br><b>Language:</b> {{country.language_spoken}}
-    <br><b>Currency:</b> {{country.currency_used}}
-    <br><b>Average Temperature:</b> {{country.average_temperature}}
-</div>
-
-
-
-{% endfor %}
 {% endblock %}
-

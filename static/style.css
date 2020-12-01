@@ -30,17 +30,17 @@ body{
     margin-right: 0.3em;
   }
   
-  .publisher{
+  /* .publisher{
     color: #8899a6;
     font-size: 13px;
     margin-left: 20px;
-  }
+  } */
   
   .buttons {
     margin-top: 10px;
     margin-left: 2px;
     font-size: 1.4em;
-    color: #aab8c2;
+    color: #0094e4;
   }
   
   .buttons i {
@@ -66,6 +66,7 @@ body{
   }
   
   .menu{
+    text-align: center;
     display: flex;
     padding: 10px;
     background-color:#EFEFEF;
@@ -74,13 +75,16 @@ body{
   
   .menu li a{
     text-decoration: none;
+    text-align: center;
   }
   
   .menu li a:visited{
     color:#0094e4;
+    text-align: center;
   }
   
   .menu li{
+    text-align: center;
     padding-right: 10px;
     list-style: none;
     color: white;
@@ -95,6 +99,7 @@ body{
   }
   
   .cities {
+    display: flex;
     background-color: #0094e4;
     color: white;
     border-radius: 12px;

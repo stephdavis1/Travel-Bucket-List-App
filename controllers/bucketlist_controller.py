@@ -10,5 +10,5 @@ bucketlist_blueprint = Blueprint("bucketlist", __name__)
 def bucketlist():
     cities = city_repository.select_all()
     countries = country_repository.select_all()
-    return render_template("/index.html", all_cities=cities, all_countries = countries)
+    return render_template("/bucketlist.html", all_cities=cities, all_countries = countries)
 

@@ -3,24 +3,26 @@
 
 
 {% for city in all_cities %}
-  <div class="city">
-    <div class="content">
-      <a href="/cities/{{city.id}}">{{city.name}}</a>
-      <div class="name">
-        {{city.city_type}}
-        <p><i>{{city.country.name}}</i></p>
-      </div>
+<div class="city">
+  <div class="content">
+    <a href="/cities/{{city.id}}">{{city.name}}</a>
+    <div class="name">
+      {{city.city_type}}
+      <p><i>{{city.country.name}}</i></p>
+    </div>
 
-        </form>
-      </div>
+    <div>
+      <form action="/cities/{{city.id}}/delete" method="POST">
+        <button type="delete">Delete</button>
+      </form>
+
     </div>
   </div>
-{% endfor %}
+  {% endfor %}
+  {% endblock %}
 
-{% endblock %}
 
-
-<!-- <div class="buttons">
+  <!-- <div class="buttons">
 
   <form class="delete-form" action="/cities/{{city.id}}/delete" method="POST">
     <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button> -->

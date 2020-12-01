@@ -16,6 +16,14 @@
     <option value="romantic">Romantic Holiday</option>
   </select>
 
+  <div>
+    <label for="country">Country:</label>
+    <select id="country" name="country_id">
+      {% for country in all_countries %}
+        <option value="{{ country.id }}">{{ country.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
 
 
 

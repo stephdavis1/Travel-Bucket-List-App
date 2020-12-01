@@ -38,6 +38,12 @@ city_repository.save(city_3)
 city_4 = City("Berlin", "City Break", country4)
 city_repository.save(city_4)
 
+city_5 = City("Munich", "City Break", country4)
+city_repository.save(city_5)
+
+city_6 = City("Hamburg", "City Break", country4)
+city_repository.save(city_6)
+
 pdb.set_trace()
 
 

@@ -8,12 +8,14 @@ CREATE TABLE countries (
     population VARCHAR (255),
     language_spoken VARCHAR(255),
     currency_used VARCHAR (255),
-    average_temperature VARCHAR (255)
+    average_temperature VARCHAR (255),
+    visited BOOLEAN
 );
 
 CREATE TABLE cities (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     city_type VARCHAR(255),
-    country_id INT REFERENCES countries(id)
+    country_id INT REFERENCES countries(id),
+    visited BOOLEAN
 );

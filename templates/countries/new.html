@@ -33,15 +33,6 @@
     <input type="text" id="temperature" name="temperature" placeholder="Temperature" required autofocus>
   </div>
 
-  <div>
-    <label for="city">Cities:</label>
-    <select id="city" name="city_id">
-      {% for cities in all_cities %}
-        <option value="{{ city.id }}">{{ city.name }}</option>
-      {% endfor %}
-    </select>
-  </div>
-
   <button type="submit">Add Country</button>
 
 </form>

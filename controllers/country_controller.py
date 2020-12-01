@@ -8,7 +8,7 @@ import repositories.country_repository as country_repository
 countries_blueprint = Blueprint("countries", __name__)
 
 
-@countries_blueprint.route("/countries/show")
+@countries_blueprint.route("/countries")
 def countries():
     countries = country_repository.select_all()
     return render_template("countries/index.html", all_countries=countries)
@@ -47,24 +47,23 @@ def show_country(id):
 
 # EDIT
 # GET '/countries/<id>/edit'
-@countries_blueprint.route("/cities/<id>/edit", methods=["GET"])
-def edit_cities(id):
-    city = city_repository.select(id)
-    countries = country_repository.select_all()
-    return render_template("cities/edit.html", city=city, all_countries=countries)
+@countries_blueprint.route("/countries/<id>/edit", methods=["GET"])
+def edit_country(id):
+    country = country_repository.select(id)
+    return render_template("countries/edit.html", country=country)
 
 
 # UPDATE
 # PUT '/countries/<id>'
 @countries_blueprint.route("/countries/<id>", methods=["POST"])
 def update_country(id):
+    print(request.form)
     name = request.form["name"]
     population = request.form["population"]
     language_spoken = request.form["language_spoken"]
-    currency_used = request.form["currency_used"]
-    average_temperature = request.form["average_temperature"]
+    currency_used = request.form["currency"]
+    average_temperature = request.form["temperature"]
     country = Country(name, population, language_spoken,currency_used, average_temperature, id)
-    print(country.name())
     country_repository.update(country)
     return redirect("/countries")
 
