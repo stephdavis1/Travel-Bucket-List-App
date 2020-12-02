@@ -31,7 +31,7 @@ def create_city():
     country = country_repository.select(request.form["country_id"])
     city = City (name, city_type, country, id, visited)
     city_repository.save(city)
-    return redirect('/bucketlist')
+    return redirect('/cities')
 
 
 # SHOW

@@ -27,15 +27,17 @@ def new_country():
 # POST '/countries'
 @countries_blueprint.route("/countries", methods=["POST"])
 def create_country():
+    print(request.form)
     name = request.form["name"]
     population = request.form["population"]
     language_spoken = request.form["language_spoken"]
     currency_used = request.form["currency_used"]
     average_temperature = request.form["average_temperature"]
     visited = request.form["visited"]
-    country = Country(name, population, language_spoken,currency_used, average_temperature, id, visited)
-    country_repository.update(country)
-    return redirect("/bucketlist")
+    country = Country(name, population, language_spoken,currency_used, average_temperature, visited)
+    print(vars(country))
+    country_repository.save(country)
+    return redirect("/countries")
 
 
 # SHOW
