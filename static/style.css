@@ -101,13 +101,12 @@ body{
   }
   
   .cities {
-    display: flex;
     background-color: #0094e4;
     color: white;
     border-radius: 12px;
     border: 2px solid #EFEFEF;
     margin: 20px;
-    padding: 20px;
+    padding: 20px;  
   }
 
   
