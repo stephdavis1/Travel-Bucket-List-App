@@ -1,13 +1,13 @@
 body{
     font-family: "Helvetica", arial, sans-serif; font-size: 16px;
-    /* background: rgb(34,193,195);
-    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-    background-attachment:fixed;
-    height:100%; */
   }
   
   h1 {
     color:#1a567b;
+  }
+
+  h2 {
+    color:#1a567b
   }
 
   p {
@@ -32,12 +32,6 @@ body{
   }
   
   
-  /* .publisher{
-    color: #8899a6;
-    font-size: 13px;
-    margin-left: 20px;
-  } */
-  
   .buttons {
     margin-top: 10px;
     margin-left: 2px;
@@ -51,10 +45,14 @@ body{
   
   input, select, button {
     font-size: 100%;
+    font-weight: bold;
     width : 100%;
     padding: 10px;
     margin: 10px;
     box-sizing: border-box;
+    color: #1a567b;
+    border-radius: 12px;
+    border: 2px solid #EFEFEF;
   }
   
   .delete-button{

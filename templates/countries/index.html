@@ -4,31 +4,22 @@
 
 
 {% for country in all_countries %}
-<div class="country">
-  <div class="city">
-    <div class="name">
-      <p>{{country.name}}</p>
-      <br>Population: {{country.population}}
-      <br>Language: {{country.language_spoken}}
-      <br>Currency: {{country.currency_used}}
-      <br>Average Temperature: {{country.average_temperature}}
-      <br>Visited: {{country.visited}}
-    </div>
+<div class="countries">
 
-    <div>
-      <form action="/countries/{{country.id}}/delete" method="POST">
+    <h2><br><b>{{country.name}}</h2>
+    <br><b>Population:</b> {{country.population}}
+    <br><b>Language:</b> {{country.language_spoken}}
+    <br><b>Currency:</b> {{country.currency_used}}
+    <br><b>Average Temperature:</b> {{country.average_temperature}}
+    <br><b>Visited:</b> {{country.visited}}
+
+    <form action="/countries/{{country.id}}/delete" method="POST">
         <button type="delete">Delete</button>
-      </form>
-
-    </div>
-
-    <div>
-      <form action="/countries/{{country.id}}/edit" method="GET">
+    </form>
+    <form action="/countries/{{country.id}}/edit" method="GET">
         <button type="edit">Edit</button>
-      </form>
+    </form>
 
-    </div>
-
-  </div>
+</div>
   {% endfor %}
   {% endblock %}
