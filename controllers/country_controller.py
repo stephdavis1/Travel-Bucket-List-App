@@ -27,7 +27,6 @@ def new_country():
 # POST '/countries'
 @countries_blueprint.route("/countries", methods=["POST"])
 def create_country():
-    # import pdb; pdb.set_trace()
     name = request.form["name"]
     population = request.form["population"]
     language_spoken = request.form["language_spoken"]
@@ -44,7 +43,7 @@ def create_country():
 @countries_blueprint.route("/countries/<id>", methods=["GET"])
 def show_country(id):
     country = country_repository.select(id)
-    return render_template("cities/show.html", country=country)
+    return render_template("countries/show.html", country=country)
 
 
 # EDIT
@@ -60,6 +59,7 @@ def edit_country(id):
 # PUT '/countries/<id>'
 @countries_blueprint.route("/countries/<id>", methods=["POST"])
 def update_country(id):
+    print(request.form)
     name = request.form["name"]
     population = request.form["population"]
     language_spoken = request.form["language_spoken"]
@@ -67,6 +67,7 @@ def update_country(id):
     average_temperature = request.form["temperature"]
     visited = request.form["visited"]
     country = Country(name, population, language_spoken,currency_used, average_temperature, id, visited)
+    print(vars(country))
     country_repository.update(country)
     return redirect("/countries")
 

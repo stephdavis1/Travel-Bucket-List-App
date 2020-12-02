@@ -13,10 +13,10 @@ def save(country):
         country.language_spoken,
         country.currency_used,
         country.average_temperature,
-        country.visited
+        country.visited,
     ]
     results = run_sql(sql, values)
-    id = results[0]['id']
+    id = results[0]["id"]
     country.id = id
     return country
 
@@ -34,8 +34,8 @@ def select_all():
             row["language_spoken"],
             row["currency_used"],
             row["average_temperature"],
-            row['id'],
-            row["visited"]
+            row["id"],
+            row["visited"],
         )
         countries.append(country)
     return countries
@@ -55,8 +55,9 @@ def select(id):
             result["language_spoken"],
             result["currency_used"],
             result["average_temperature"],
-            result["visited"],
-            result["id"]
+            result["id"],
+            result["visited"]
+
         )
     return country
 
@@ -85,7 +86,7 @@ def update(country):
         country.average_temperature,
         country.visited,
         country.id
-
+        
     ]
     run_sql(sql, values)
 
@@ -98,6 +99,6 @@ def cities(country):
     results = run_sql(sql, values)
 
     for row in results:
-        city = City(row['title'], row['city_type'],row['country_id'],row['id'])
+        city = City(row["title"], row["city_type"], row["country_id"], row["id"])
         cities.append(city)
     return cities

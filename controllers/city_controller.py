@@ -28,10 +28,11 @@ def create_city():
     print(request.form)
     name = request.form["name"]
     city_type = request.form["city_type"]
+    visited = request.form["visited"]
     country = country_repository.select(request.form["country_id"])
-    city = City(name, city_type, country)
+    city = City (name, city_type, country, id, visited)
     city_repository.save(city)
-    return redirect("/cities")
+    return redirect('/cities')
 
 
 # SHOW
@@ -54,10 +55,13 @@ def edit_cities(id):
 # PUT '/cities/<id>'
 @cities_blueprint.route("/cities/<id>", methods=['POST'])
 def update_city(id):
+    print(request.form)
     name = request.form["name"]
     city_type = request.form["city_type"]
+    visited = request.form["visited"]
     country = country_repository.select(request.form["country_id"])
-    city = City (name, city_type, country, id)
+    print(vars(country))
+    city = City(name, city_type, country, id, visited)
     city_repository.update(city)
     return redirect('/cities')
 
@@ -74,4 +78,3 @@ def delete_city(id):
 
 
 
-    # self, name, city_type, country, id=None
